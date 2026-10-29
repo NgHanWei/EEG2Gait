@@ -1,0 +1,26 @@
+
+cff-version: 1.2.0
+message: "If you use this project, please cite the original paper."
+preferred-citation:
+  type: article
+  title: "EEG2GAIT: A Hierarchical Graph Convolutional Network for EEG-Based Gait Decoding"
+  authors:
+    - family-names: Fu
+      given-names: Xi
+    - family-names: Liu
+      given-names: Rui
+    - family-names: Wai
+      given-names: Aung Aung Phyo
+    - family-names: Pulferer
+      given-names: Hannah
+    - family-names: Robinson
+      given-names: Neethu
+    - family-names: Müller-Putz
+      given-names: Gernot R.
+    - family-names: Guan
+      given-names: Cuntai
+  journal: IEEE Transactions on Neural Systems and Rehabilitation Engineering
+  volume: 34
+  pages: "441-454"
+  year: 2025
+  doi: "10.1109/TNSRE.2025.3647101"
