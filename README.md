@@ -5,7 +5,7 @@ Supports FBM, GPP, and MoBI datasets with single-GPU, multi-GPU, and multi-node 
 
 If you use this work in your research, please cite the original paper:
 
-Fu, X., Liu, R., Wai, A. A. P., Pulferer, H., Robinson, N., Müller-Putz, G. R., & Guan, C. *EEG2GAIT: A deep learning framework for decoding human gait dynamics from EEG signals.* IEEE Transactions on Neural Systems and Rehabilitation Engineering (TNSRE).
+Xi Fu, Rui Liu, Aung Aung Phyo Wai, Hannah Pulferer, Neethu Robinson, Gernot Müller-Putz, Cuntai Guan, *EEG2GAIT: A Hierarchical Graph Convolutional Network for EEG-Based Gait Decoding,*IEEE Transactions on Neural Systems and Rehabilitation Engineering, vol. 34, pp. 441-454, 2026, doi: 10.1109/TNSRE.2025.3647101.
 
 ```bibtex
 @article{fu2025eeg2gait,
