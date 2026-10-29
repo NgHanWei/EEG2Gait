@@ -1,6 +1,13 @@
 A unified training, evaluation, and visualization pipeline for EEG-based gait decoding using contrastive learning, multi-head architectures, and strong baselines.
 Supports FBM, GPP, and MoBI datasets with single-GPU, multi-GPU, and multi-node DDP training.
 
+## Citation
+
+If you use this work in your research, please cite the original paper:
+
+Fu, X., Liu, R., Wai, A. A. P., Pulferer, H., Robinson, N., Müller-Putz, G. R., & Guan, C. *EEG2GAIT: A deep learning framework for decoding human gait dynamics from EEG signals.* IEEE Transactions on Neural Systems and Rehabilitation Engineering (TNSRE).
+
+
 📂 Repository Structure
 .
 ├── train_baseline.py
