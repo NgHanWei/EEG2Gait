@@ -1,0 +1,176 @@
+mat_path: ../raw_mat
+
+results_save_path: ../checkpoints
+
+time_step:
+  start: 60
+  stop: 110
+  step: 10
+
+future_step: 1
+
+n_trials: 1
+standard: ture
+
+
+
+sampling_rate: 100
+
+# ============================================
+# =====  Parameters for Linear Decoders  =====
+# ============================================
+
+lr: # Linear regression
+  brand: LR
+  results_save_name: linearRegression.csv
+
+rr: # Ridge regression
+  brand: RR
+  results_save_name: ridgeRegression.csv
+  alpha:
+    min: 0.1
+    max: 5.0
+
+lasso:
+  brand: Lasso
+  results_save_name: lasso.csv
+  alpha:
+    min: 0.1
+    max: 5.0
+
+# ===========================================
+# =====  Parameters for Kalman Filters  =====
+# ===========================================
+
+
+ukf: # UKF
+  brand: ukf
+  order: 1
+  lambda_F: 5
+  lambda_B: 5  # After multiple optimization this is the best
+
+
+  kappa: 1.0
+  augsize: 13
+  decomp_type: 'cholesky' # 'cholesky' gives singularity problems
+  gpu: 1
+  
+  
+  results_save_name: ukf.csv
+
+# hyperparameters for dl methods
+optimizers:
+  - adam
+  - sgd
+  - RMSprop
+
+weight_decay_p:
+  min: 0.000000001
+  max: 0.000001
+
+lr_p:
+  min: 0.000001
+  max: 0.1
+
+num_epochs_p:
+  min: 30
+  max: 50
+
+batch_size: 128
+n_train_time: 5
+
+# ---------------------
+tcn:
+  brand: tcn
+  num_hidden: 32
+  num_layers: 2
+  kernel_size: 10
+  dropout: 0.5
+  results_save_name: tcn.csv
+
+lstm:
+  brand: lstm
+  num_hidden: 16
+  step: 8
+  num_layers: 2
+  dropout: 0.25
+  group_size: 10
+  results_save_name: lstm.csv
+
+cnnlstm:
+  brand: cnnlstm
+  cnn:
+    num_S: 4
+  lstm:
+    num_hidden: 32
+    num_layers: 2
+  dropout: 0.5
+  results_save_name: cnnlstm.csv
+
+tsception:
+  brand: tsception
+  num_T_p:
+    min: 5
+    max: 10
+  num_T: 4
+  num_S: 2
+  num_S_p:
+    min: 3
+    max: 7
+  results_save_name: tsecption.csv
+
+
+eegnet:
+  F1: 8
+  D: 2
+  F2: 16
+  device: 'cuda:0'
+  conv1_num_kernel_p:
+    min: 8
+    max: 128
+    step: 8
+  moreconv_num_kernel_p:
+    min: 2
+    max: 8
+    step: 2
+  conv2_kernel_width_p:
+    min: 16
+    max: 64
+    step: 16
+  conv3_kernel_width_p:
+    min: 4
+    max: 12
+    step: 4
+  brand: eegnet
+  num_chan_eeg: 59
+
+
+  num_chan_kin: 6
+  dropout: 0.25
+  results_save_name: eegnet.csv
+  eeg:
+    conv_par: 0.00001 #supposed to be 1e-5
+    lr: 0.001
+    time_step: 200
+  joints:
+    conv_par: 0.01 #supposed to be 1e-3
+    lr: 0.00001
+    time_step: 5
+  val_trial: 5
+  test_trial: 15
+  mask: 0
+  blk1_kernel: 50
+  blk5_kernel: 16
+  out_kernel: 6
+  bandFiltCutF: [[0.5, 4], [4, 8], [8, 13], [13,20], [20,25], [25,30], [30,40], [40,49]]
+#  bandFiltCutF: [[4, 8], [8, 13], [13,18], [18,22], [22,26], [26,30], [30,40], [40,45]]
+num_epoch: 5
+num_teacher_epoch: 30
+num_student_epoch: 80
+sep_fraction: 0.9
+patience: 50
+num_chan_kin: 6
+num_chan_eeg: 59
+channel_select: 'InnerOnly'
+
+temporal_receptive: [60, 80, 100, 120]
